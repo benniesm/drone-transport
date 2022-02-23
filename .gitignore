@@ -1,0 +1,5 @@
+# Database file
+db/database.db
+
+# Node modules
+node_modules/

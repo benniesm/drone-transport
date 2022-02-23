@@ -1,0 +1,20 @@
+{
+  "name": "drone-transport-benjamin-adegbaju",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://gitlab.com/benadegbaju/drone-transport-benjamin-adegbaju.git",
+  "author": "benjaminAdegbaju",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "router": "^1.3.6",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2"
+  },
+  "scripts": {
+    "init-app": "node init-app.js",
+    "start": "node index.js"
+  }
+}
