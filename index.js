@@ -6,7 +6,7 @@ require('dotenv').config();
 //const droneBatteryLevels = require('./services/dronesBatteryLevels');
 
 const drones = require('./routes/drones');
-//const medications = require('./routes/medications');
+const medications = require('./routes/medications');
 //const loader = require('./routes/loader');
 
 /**
@@ -14,7 +14,7 @@ const drones = require('./routes/drones');
  */
 router.use(express.json());
 router.use('/drones', drones);
-//router.use('/medications', medications);
+router.use('/medications', medications);
 //router.use('/loader', loader);
 
 router.use('/', (req, res) => {
