@@ -22,15 +22,15 @@ fs.unlink('db/database.db', (err) => {
       INSERT INTO drones (serialNumber, model, weightLimit, batteryCapacity, state)
       VALUES
         ("10001", "BA-1 PRO", 500, 100, "IDLE"),
-        ("10002", "BA-1 PRO", 500, 100, "IDLE"),
-        ("10003", "BA-1 PRO", 500, 100, "IDLE"),
-        ("10004", "BA-1 PRO", 500, 100, "IDLE"),
+        ("10002", "BA-1 PRO", 500, 99, "IDLE"),
+        ("10003", "BA-1 PRO", 500, 25, "IDLE"),
+        ("10004", "BA-1 PRO", 500, 48, "IDLE"),
         ("10005", "BA-X 9090", 500, 100, "IDLE"),
-        ("10006", "BA-X 9090", 500, 100, "IDLE"),
-        ("10007", "BA-X 9090", 500, 100, "IDLE"),
-        ("10008", "BA-X 9090", 500, 100, "IDLE"),
-        ("10009", "ALIEN-DRONE #00@2716--Z*", 500, 100, "IDLE"),
-        ("10010", "ALIEN-DRONE #00@2716--Z*", 500, 100, "IDLE")
+        ("10006", "BA-X 9090", 500, 56, "IDLE"),
+        ("10007", "BA-X 9090", 500, 80, "IDLE"),
+        ("10008", "BA-X 9090", 500, 32, "IDLE"),
+        ("10009", "ALIEN-DRONE #00@2716--Z*", 500, 23, "IDLE"),
+        ("10010", "ALIEN-DRONE #00@555D*", 500, 100, "IDLE")
     `);
 
     res.exec(`
