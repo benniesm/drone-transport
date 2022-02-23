@@ -3,3 +3,6 @@ db/database.db
 
 # Node modules
 node_modules/
+
+# Log file
+batteryLevelHistory.log

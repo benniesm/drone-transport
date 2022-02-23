@@ -3,11 +3,11 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
-//const droneBatteryLevels = require('./services/dronesBatteryLevels');
+const droneBatteryLevels = require('./services/dronesBatteryLevels');
 
 const drones = require('./routes/drones');
 const medications = require('./routes/medications');
-//const loader = require('./routes/loader');
+const loader = require('./routes/loader');
 
 /**
  * Valid routes of the API
@@ -15,7 +15,7 @@ const medications = require('./routes/medications');
 router.use(express.json());
 router.use('/drones', drones);
 router.use('/medications', medications);
-//router.use('/loader', loader);
+router.use('/loader', loader);
 
 router.use('/', (req, res) => {
   res.status(200);
@@ -40,8 +40,8 @@ const startServer = () => {
 startServer();
 
 /**
- * Start periodic battery level checking
+ * Start periodic battery level checking (Every 30 seconds)
  */
 setInterval(() => {
-  //droneBatteryLevels();
-}, 900000);
+  droneBatteryLevels();
+}, 30000);
