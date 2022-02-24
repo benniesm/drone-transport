@@ -1,6 +1,8 @@
 const { response } = require('express');
 const express = require('express');
 const router = express.Router();
+const { validationResult } = require('express-validator');
+const { loaderAddValidator } = require('../validation/loader');
 
 const queryDb = require('../db/queryDb');
 
@@ -16,7 +18,12 @@ router.get('/:droneId', async(req, res) => {
   return res.json({ data: allLoadedForDrone });
 });
 
-router.post('/:droneId', async(req, res) => {
+router.post('/:droneId', loaderAddValidator, async(req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const data = req.body;
 
   // Get drone battery level and state

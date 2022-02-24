@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { validationResult } = require('express-validator');
+const { dronesRegisterValidator } = require('../validation/drones');
 
 const queryDb = require('../db/queryDb');
 
@@ -47,7 +49,12 @@ router.get('/drone/battery/:serial', async(req, res) => {
   return res.json({ data: oneDrone.batteryCapacity + '%' });
 });
 
-router.post('/', async(req, res) => {
+router.post('/', dronesRegisterValidator, async(req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const data = req.body;
   let dataKeys = Object.keys(data).join('","');
   let dataValues = Object.values(data).join('","');
