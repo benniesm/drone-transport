@@ -30,9 +30,9 @@ router.post('/:droneId', loaderAddValidator, async(req, res) => {
   queryDb('drones', `serialNumber = "${req.params.droneId}"`, 'weightLimit, batteryCapacity, state');
   const droneData = await queryDb.getOneRow();
 
-  if (!droneData.batteryCapacity || !droneData.state) {
+  if (!droneData || !droneData.batteryCapacity || !droneData.state) {
     res.status(404);
-    res.json({ error: 'Drone not found.' });
+    return res.json({ error: 'Drone not found.' });
   }
   if (droneData.batteryCapacity < 25) {
     res.status(403);

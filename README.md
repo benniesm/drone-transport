@@ -27,6 +27,7 @@ Runs the application, and the server is started. By default it listens to PORT 4
 * The serial number column 'serialNumber' is unique for all entries.
 * The code column 'code' for medications is also unique for all entries.
 * Label images for medications are not stored directly into the database. Their absolute URLs are stored instead as string.
+* To load a drone with medication, the medication is selected from the list of medications on the database.
 
 ## API Documentation
 
@@ -86,6 +87,3 @@ Loads a drone with medication.
 * Request Body Parameters
   * [medCode] : [string]
   * [units] : [integer]
-
-
-## `Commit History`
