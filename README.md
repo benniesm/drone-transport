@@ -15,6 +15,10 @@ This is a Node.js application. It uses express.js server to execute requests, an
 
 In the project directory, you can run:
 
+### `yarn install`
+
+Install node modules and app dependencies.
+
 ### `yarn test`
 
 Runs the junit tests on the Rest API.
