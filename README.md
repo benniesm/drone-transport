@@ -5,7 +5,7 @@
 
 ## Introduction
 
-This API service provides endpints for storing drones information, medications, and loading drones with medications.
+This API service provides endpoints for storing drones information, medications, and loading drones with medications.
 
 ### The Tech Stack
 
@@ -15,9 +15,14 @@ This is a Node.js application. It uses express.js server to execute requests, an
 
 In the project directory, you can run:
 
-### `yarn init-app`
+### `yarn test`
 
-Clears any exiting databse and creates a new one which will be populated with sample data.
+Runs the junit tests on the Rest API.
+It creates sample data in database, start the server and calls all the endpoints.
+
+### `yarn init-app` (Always perform before first run, and after running tests)
+
+Clears any existing database and creates a new one, which will be populated with required data.
 
 ### `yarn start`
 
@@ -26,10 +31,10 @@ Runs the application, and the server is started. By default it listens to PORT 4
 ## Assumptions
 * The serial number column 'serialNumber' is unique for all entries.
 * The code column 'code' for medications is also unique for all entries.
-* Label images for medications are not stored directly into the database. Their absolute URLs are stored instead as string.
-* To load a drone with medication, the medication is selected from the list of medications on the database.
+* Label images for medications are not stored directly into the database. Their absolute URLs are instead stored as strings.
+* To load a drone with medication, the medication is selected from the list of medications from the database.
 
-## API Documentation
+## API Documentation Summary
 
 All endpoints accept and return JSON string
 The following endpoints are available:
@@ -40,7 +45,7 @@ The following endpoints are available:
 This endpoint returns all data for all drones registered on the database.
 
 #### Method `GET: /available`
-Returns all data for drones whose states are 'IDLE'.
+Returns all data for drones whose states are 'IDLE', i.e available for loading.
 
 #### Method `GET: /drone/:serial`
 Returns all data for one drone with the serial number provided.
